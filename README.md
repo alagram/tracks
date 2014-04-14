@@ -1,6 +1,6 @@
 # Tracks
 
-TODO: Write a gem description
+Ruby on Tracks. A Rack-based Web Framework, but with extra awesomeness!
 
 ## Installation
 
