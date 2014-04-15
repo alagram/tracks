@@ -1,6 +1,8 @@
 require "tracks/array"
 require "tracks/version"
 require "tracks/routing"
+require "tracks/util"
+require "tracks/dependencies"
 
 module Tracks
   class Application
