@@ -1,6 +1,15 @@
 require_relative "test_helper"
 
+class TestController < Tracks::Controller
+  def index
+    "Hello"
+  end
+end
+
 class TestApp < Tracks::Application
+  def get_controller_and_action(env)
+    [TestController, "index"]
+  end
 end
 
 class TracksAppTest < Test::Unit::TestCase
@@ -11,7 +20,7 @@ class TracksAppTest < Test::Unit::TestCase
   end
 
   def test_request
-    get "/"
+    get "/example/route"
 
     assert last_response.ok?
     body = last_response.body

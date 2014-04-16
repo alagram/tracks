@@ -1,8 +1,9 @@
-require "tracks/array"
 require "tracks/version"
 require "tracks/routing"
 require "tracks/util"
 require "tracks/dependencies"
+require "tracks/controller"
+
 
 module Tracks
   class Application
@@ -21,16 +22,6 @@ module Tracks
       rescue RuntimeError
         [505, {'Content-Type' => 'text/html'}, ["Something really bad happened!"]]
       end
-    end
-  end
-
-  class Controller
-    def initialize(env)
-      @env = env
-    end
-
-    def env
-      @env
     end
   end
 end
