@@ -26,5 +26,13 @@ module Tracks
       klass = klass.to_s.gsub /Controller$/, ""
       Tracks.to_underscore klass
     end
+
+    def request
+      @request ||= Rack::Request.new(@env)
+    end
+
+    def params
+      request.params
+    end
   end
 end
