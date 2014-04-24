@@ -16,12 +16,13 @@ module Tracks
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
 
-      begin
-        text = controller.send(act)
+      text = controller.send(act)
+      if controller.get_response
+        st, hd, rs = controller.get_response.to_a
+        [st, hd, [rs.body].flatten]
+      else
         [200, {'Content-Type' => 'text/html'},
         [text]]
-      rescue RuntimeError
-        [505, {'Content-Type' => 'text/html'}, ["Something really bad happened!"]]
       end
     end
   end
